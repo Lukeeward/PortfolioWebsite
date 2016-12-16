@@ -1,0 +1,263 @@
+/*
+ * Author: Carlos Alvarez
+ * URL: http://alvarez.is
+ *
+ * Project Name: Victoria vCard - Free Bootstrap 3 Theme
+ * Version: 1.0
+ * URL: http://blacktie.co
+ */
+
+
+body {
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+	background-image: url(../img/header-bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+.card.horizontal .card-image {
+max-width: 39% !important;
+max-height: 100%;
+}
+
+.hiddenElement {
+	display: none;
+}
+
+.pictureCover {
+	display: block;
+	transform: translateY(-100%);
+	z-index: 1;
+	padding-bottom: 64px;
+	padding: 20px;
+	position: absolute;
+	background-color: #fff;
+	width: 100%;
+	overflow-y: auto;
+	left: 0;
+	top: 100%;
+	height: 100%;
+}
+  
+.overlay:before{
+  position: absolute;
+  content:" ";
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display: block;
+  z-index:0;
+  background-color: rgba(255, 255, 255,0.2);
+}
+
+.hiddenDetails {
+	display: none;
+}
+
+.projectTags {
+	position: absolute;
+
+}
+
+.cardContainer {
+	margin-top: 170px !important;
+}
+
+.contactIcons {
+	margin-right: 7px !important;
+}
+
+@media only screen and (max-width: 768px) {
+	#mainCard {
+		height: 400px !important;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	#mainCard {
+		height: 400px !important;
+	}
+	.card.horizontal .card-image{
+		max-width: 50% !important;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+	.cardContainer {
+		margin-top: 50px !important;
+	}
+}
+
+
+@media only screen and (max-width: 425px) and (min-width: 375px) {
+	.card .card-content {
+		padding-top: 0px !important;
+		padding-bottom: 30px !important;
+		padding-left: 30px !important;
+		padding-right: 30px !important;
+	}
+}
+
+.hoverText {
+	position: absolute;
+	background-color:rgba(255,255,255,0.7);
+	width: auto;
+	line-height:50px;
+	text-align: center;
+	z-index:10;
+	opacity: 0;
+	display:block;
+	height: auto;
+	overflow: hidden;
+	 -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.hoverText:hover {
+	opacity:1;
+}
+
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway";
+    font-weight: 300;
+    color: #333;
+}
+
+
+/* Paragraph & Typographic */
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+}
+
+.centered {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #1abc9c;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.w {
+	background-color: #ffffff;
+}
+
+
+.col-md-4 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.col-md-8 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+.nav-tabs {
+	border-bottom: 1px solid #dddddd;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	color: #555555;
+	cursor: default;
+	background-color: #ffffff;
+	border-left: 5px solid #1abc9c;
+	border-bottom-color: transparent;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	width: 100%;
+}
+
+.nav-tabs > li > a {
+	margin-right: 2px;
+	line-height: 1.428571429;
+	border-bottom: 1px solid #dddddd;
+	border-radius: 0 0 0 0;
+	width: 100%;
+	background-color: #f2f2f2;
+}
+
+.tab-content {
+	background-color: #ffffff;
+	padding-left: 15px;
+	padding-top: 20px;
+	padding-right: 15px;
+}
+
+.tab-content h5 {
+	color: #bdc3c7;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.red i {
+	font-size: 12px;
+	color: #e74c3c;
+}
+
+i {
+	vertical-align: middle;
+}
+
+.sm {
+	font-size: 14px;
+}
+
+a h6{
+	color: #1abc9c;
+}
+
+a h6:hover {
+	color: #7b7b7b;
+}
+
+grey {
+	color: #bdc3c7;
+	font-weight: 700;
+}
