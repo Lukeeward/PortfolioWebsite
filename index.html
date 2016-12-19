@@ -33,7 +33,7 @@
 		<li><a href="#" class="contactButton"><i class="material-icons">email</i>Contact</a></li>
 		<li><div class="divider"></div></li>
 	</ul>
-	<a class="waves-effect waves-teal btn-large btn-flat hide-on-med-and-up" id="sideNavButton"><i class="material-icons">menu</i></a>
+	<a class="waves-effect waves-default btn-large btn-flat hide-on-med-and-up" id="sideNavButton"><i class="material-icons">menu</i></a>
 	<a href="#" data-activates="slide-out" class="button-collapse hide-on-med-and-up"></a>
 	<div class="overlay">
 		<div class="container cardContainer">
@@ -44,28 +44,7 @@
 						<div class="card-content" style="width:100%; height:100%;">
 							<p id="revealContent" class="hiddenDetails">Here is some information about some projects I have worked one, click a project to read more.</p>
 							<!-- hidden project details -->
-							<div id="projectOneDetails" class="hiddenDetails">
-								<p>Project One.</p>
-								<div class="projectTags">
-									<div class="chip">Tech 1</div>
-									<div class="chip">Tech 2</div>
-									<div class="chip">Tech 3</div>
-								</div>
-							</div>
-							<div id="projectTwoDetails" class="hiddenDetails">
-								<p>Project Two.</p>
-								<div class="projectTags">
-									<div class="chip">Tech 1</div>
-									<div class="chip">Tech 2</div>
-									<div class="chip">Tech 3</div>
-								</div>
-							</div>
-							<div id="projectThreeDetails" class="hiddenDetails">
-								<p>Project Three.</p>
-								<div class="projectTags">
-									<div class="chip">Tech 1</div>
-									<div class="chip">Tech 2</div>
-								</div>
+							<div id="projectDetails" class="hiddenDetails">
 							</div>
 							<!-- -->
 							<div id="resumeDownload" class="hiddenDetails">
@@ -78,7 +57,7 @@
 
 				</div>
 				<div class="card-stacked card-action">
-				<!--About tab-->
+					<!--About tab-->
 					<div class="card-content" id="aboutTab">
 						<span class="card-title activator grey-text text-darken-4">Luke ward</span>
 						<p>Software Engineer.</p>
@@ -97,7 +76,7 @@
 						<hr>
 						<h6><b><i class="material-icons contactIcons">star</i>Awards.</b></h6>
 						<p>dsdsd</p>
-						<a class="waves-effect waves-teal btn-flat hide-on-med-and-up" style="position:absolute; bottom: 10px">Download CV</a>
+						<a class="waves-effect waves-red btn-flat hide-on-med-and-up red-text text-lighten-1" style="position:absolute; bottom: 10px">Download CV</a>
 					</div>
 					<!--Portfolio tab-->
 					<div class="card-content hiddenElement" id="portfolioTab">
@@ -106,7 +85,6 @@
 						<div class="row">
 							<div class="col s6 m4">
 								<div style="width: 100%;">
-									<!--<span class="hoverText">Read More</span>-->
 									<img class="responsive-img activator" src="assets/img/p01.png" id="projectOne">
 								</div>
 							</div>
@@ -224,109 +202,24 @@
 	<footer class="page-footer red lighten-1" style="position:absolute; bottom:0; width: 100%; padding-top:0;">
 	  <div class="footer-copyright">
 		<div class="container">
-		© 2014 Copyright Text
+		© 2016 Copyright Text
 		</div>
 	  </div>
 	</footer>
-	
+	<script id="projectInfoTemplate" type="text/x-handlebars-template">
+		<p><b>{{projectName}}</b></p>
+		<p>{{projectDetails}}</p>
+		<div class="projectTags">
+			{{#each tags}}
+				<div class="chip">{{this}}</div>
+			{{/each}}
+		</div>
+	</script>
     <script src="assets/js/jquery.js"></script>
 	<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-	<script>
-	$(document).ready(function(){
-	
-		$('.modal').modal({
-			starting_top: '25%',
-			ending_top: '25%'
-		});
-	
-		$(".button-collapse").sideNav({
-			closeOnClick: true, 
-			draggable: true 
-		});
-	
-		function hideAllProjectInfo(){
-			$("#revealContent").hide();
-			$("#projectOneDetails").hide();
-			$("#projectTwoDetails").hide();
-			$("#projectThreeDetails").hide();
-			$("#resumeDownload").hide();
-		};
-		
-		$('.aboutButton').click(function (e) {
-			e.preventDefault()
-			$("#aboutTab").show();
-			$("#resumeTab").hide();
-			$("#portfolioTab").hide();
-			$("#contactTab").hide();
-			$("#profilePicture").show();
-			$("#projectInfo").hide();
-		});
-		
-		$('.resumeButton').click(function (e) {
-			e.preventDefault()
-			$("#aboutTab").hide();
-			$("#portfolioTab").hide();
-			$("#contactTab").hide();
-			$("#resumeTab").show();
-			hideAllProjectInfo();
-			$("#projectInfo").show();
-			$("#resumeDownload").show();
-		});
-		
-		$('.portfolioButton').click(function (e) {
-			e.preventDefault()
-			hideAllProjectInfo();
-			$("#aboutTab").hide();
-			$("#resumeTab").hide();
-			$("#portfolioTab").show();
-			$("#contactTab").hide();
-			$("#projectInfo").show();
-			$("#revealContent").show();
-		});
-		
-		$('.contactButton').click(function (e) {
-			e.preventDefault()
-			$("#aboutTab").hide();
-			$("#resumeTab").hide();
-			$("#portfolioTab").hide();
-			$("#contactTab").show();
-		});
-		
-		$("#projectOne").click(function (e) {
-			hideAllProjectInfo();
-			$("#projectOneDetails").show();
-			if ($(window).width() < 1024) {
-				$("#projectOneModal").modal('open');
-			}
-		});
-		
-		$("#projectTwo").click(function (e) {
-			hideAllProjectInfo();
-			$("#projectTwoDetails").show();
-			if ($(window).width() < 1024) {
-				$("#projectTwoModal").modal('open');
-			}
-		});
-		
-		$(".projectThree").click(function (e) {
-			hideAllProjectInfo();
-			$("#projectThreeDetails").show();
-			if ($(window).width() < 1024) {
-				$("#projectThreeModal").modal('open');
-			}
-		});
-		
-		$("#sideNavButton").click(function(e) {
-			$('.button-collapse').sideNav('show');
-		});
-		
-		
-	});
-	
-	
-	
-	</script>    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	<script src="assets/js/index.js"></script>    
     
   </body>
 </html>
