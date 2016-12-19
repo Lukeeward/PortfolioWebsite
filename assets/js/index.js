@@ -18,6 +18,14 @@ $(document).ready(function(){
 		$("#resumeDownload").hide();
 	};
 	
+	function hideAllTabs() {
+		$("#aboutTab").hide();
+		$("#resumeTab").hide();
+		$("#portfolioTab").hide();
+		$("#contactTab").hide();
+	}
+	
+	
 	function renderProjectDetails(title, details, tags) {
 		var template = Handlebars.compile($("#projectInfoTemplate").html());
 		$("#projectDetails").html(template({projectName: title, projectDetails: details, tags: tags}));
@@ -25,19 +33,15 @@ $(document).ready(function(){
 	
 	$('.aboutButton').click(function (e) {
 		e.preventDefault()
+		hideAllTabs();
 		$("#aboutTab").show();
-		$("#resumeTab").hide();
-		$("#portfolioTab").hide();
-		$("#contactTab").hide();
 		$("#profilePicture").show();
 		$("#projectInfo").hide();
 	});
 	
 	$('.resumeButton').click(function (e) {
 		e.preventDefault()
-		$("#aboutTab").hide();
-		$("#portfolioTab").hide();
-		$("#contactTab").hide();
+		hideAllTabs();
 		$("#resumeTab").show();
 		hideAllProjectInfo();
 		$("#projectInfo").show();
@@ -47,48 +51,51 @@ $(document).ready(function(){
 	$('.portfolioButton').click(function (e) {
 		e.preventDefault()
 		hideAllProjectInfo();
-		$("#aboutTab").hide();
-		$("#resumeTab").hide();
+		hideAllTabs();
 		$("#portfolioTab").show();
-		$("#contactTab").hide();
 		$("#projectInfo").show();
 		$("#revealContent").show();
 	});
 	
 	$('.contactButton').click(function (e) {
 		e.preventDefault()
-		$("#aboutTab").hide();
-		$("#resumeTab").hide();
-		$("#portfolioTab").hide();
+		hideAllTabs();
 		$("#contactTab").show();
 	});
 	
 	$("#projectOne").click(function (e) {
-		hideAllProjectInfo();
-		renderProjectDetails("Project One.", "Details about project one.", ["Angular", "Ionic", "HTML5"]);
-		$("#projectDetails").show();
-		if ($(window).width() < 1024) {
-			$("#projectOneModal").modal('open');
-		}
+		displayProjectInformation("One", "Project One.", "Details about project one.", ["Angular", "Ionic", "Cordova"]);
 	});
 	
 	$("#projectTwo").click(function (e) {
-		hideAllProjectInfo();
-		renderProjectDetails("Project Two.", "Details about project two.", ["C#", "Entity Framework"]);
-		$("#projectDetails").show();
-		if ($(window).width() < 1024) {
-			$("#projectTwoModal").modal('open');
-		}
+		displayProjectInformation("Two", "Project Two.", "Details about project two.", ["C#", "Entity Framework"]);
 	});
 	
 	$(".projectThree").click(function (e) {
-		hideAllProjectInfo();
-		renderProjectDetails("Project Three.", "Details about project three.", ["Angular", "Ionic", "HTML5"]);
-		$("#projectDetails").show();
-		if ($(window).width() < 1024) {
-			$("#projectThreeModal").modal('open');
-		}
+		displayProjectInformation("Three", "Project Three.", "Details about project three.", ["Angular", "Ionic", "Cordova"]);
 	});
+	 
+	$("#projectFour").click(function (e) {
+		displayProjectInformation("Four", "Project Four.", "Details about project four.", ["Angular", "Ionic", "Cordova"]);
+	});
+	$("#projectFive").click(function (e) {
+		displayProjectInformation("Five", "Project Five.", "Details about project five.", ["Angular", "Ionic", "Cordova"]);
+	});
+	
+	$(".projectSix").click(function (e) {
+		displayProjectInformation("Six", "Project Six.", "Details about project six.", ["Angular", "Ionic", "Cordova"]);
+	});
+	
+	function displayProjectInformation(projectNumber, title, details, tags){
+		var maxWidth = 1024;
+		hideAllProjectInfo();
+		renderProjectDetails(title, details, tags);
+		$("#projectDetails").show();
+		if ($(window).width() < maxWidth) {
+			$("#project" + projectNumber + "Modal").modal('open');
+		}
+	}
+	
 	
 	$("#sideNavButton").click(function(e) {
 		$('.button-collapse').sideNav('show');
