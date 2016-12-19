@@ -18,6 +18,11 @@ $(document).ready(function(){
 		$("#resumeDownload").hide();
 	};
 	
+	function renderProjectDetails(title, details, tags) {
+		var template = Handlebars.compile($("#projectInfoTemplate").html());
+		$("#projectDetails").html(template({projectName: title, projectDetails: details, tags: tags}));
+	}
+	
 	$('.aboutButton').click(function (e) {
 		e.preventDefault()
 		$("#aboutTab").show();
@@ -60,7 +65,8 @@ $(document).ready(function(){
 	
 	$("#projectOne").click(function (e) {
 		hideAllProjectInfo();
-		$("#projectOneDetails").show();
+		renderProjectDetails("Project One.", "Details about project one.", ["Angular", "Ionic", "HTML5"]);
+		$("#projectDetails").show();
 		if ($(window).width() < 1024) {
 			$("#projectOneModal").modal('open');
 		}
@@ -68,7 +74,8 @@ $(document).ready(function(){
 	
 	$("#projectTwo").click(function (e) {
 		hideAllProjectInfo();
-		$("#projectTwoDetails").show();
+		renderProjectDetails("Project Two.", "Details about project two.", ["C#", "Entity Framework"]);
+		$("#projectDetails").show();
 		if ($(window).width() < 1024) {
 			$("#projectTwoModal").modal('open');
 		}
@@ -76,7 +83,8 @@ $(document).ready(function(){
 	
 	$(".projectThree").click(function (e) {
 		hideAllProjectInfo();
-		$("#projectThreeDetails").show();
+		renderProjectDetails("Project Three.", "Details about project three.", ["Angular", "Ionic", "HTML5"]);
+		$("#projectDetails").show();
 		if ($(window).width() < 1024) {
 			$("#projectThreeModal").modal('open');
 		}
