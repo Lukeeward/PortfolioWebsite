@@ -9,13 +9,29 @@ $(document).ready(function(){
 		closeOnClick: true, 
 		draggable: true 
 	});
-
+	
+	$('#submitButton').click( function() {
+		console.log("dsdsd");
+		$("#contactForm").hide();
+		$("#loadingSpinner").show();
+		$.ajax("process.php")
+		.done(function() {
+			$("#loadingSpinner").hide();
+			$("#confirmationMessage").show();
+		})
+	});
+	
+	
 	function hideAllProjectInfo(){
 		$("#revealContent").hide();
 		$("#projectOneDetails").hide();
 		$("#projectTwoDetails").hide();
 		$("#projectThreeDetails").hide();
+		$("#projectFourDetails").hide();
+		$("#projectFiveDetails").hide();
+		$("#projectSixDetails").hide();
 		$("#resumeDownload").hide();
+		$("#contactForm").hide();
 	};
 	
 	function hideAllTabs() {
@@ -30,6 +46,12 @@ $(document).ready(function(){
 		var template = Handlebars.compile($("#projectInfoTemplate").html());
 		$("#projectDetails").html(template({projectName: title, projectDetails: details, tags: tags}));
 	}
+	
+	function renderProjectModal(title, details, tags) {
+		var template = Handlebars.compile($("#projectInfoModal").html());
+		$("#projectModal").html(template({projectName: title, projectDetails: details, tags: tags}));
+	}
+	
 	
 	$('.aboutButton').click(function (e) {
 		e.preventDefault()
@@ -60,7 +82,11 @@ $(document).ready(function(){
 	$('.contactButton').click(function (e) {
 		e.preventDefault()
 		hideAllTabs();
+		hideAllProjectInfo();
 		$("#contactTab").show();
+		$("#projectDetails").hide();
+		$("#projectInfo").show();
+		$("#contactForm").show();
 	});
 	
 	$("#projectOne").click(function (e) {
@@ -92,7 +118,8 @@ $(document).ready(function(){
 		renderProjectDetails(title, details, tags);
 		$("#projectDetails").show();
 		if ($(window).width() < maxWidth) {
-			$("#project" + projectNumber + "Modal").modal('open');
+			renderProjectModal(title, details, tags);
+			$("#projectModal").modal('open');
 		}
 	}
 	
