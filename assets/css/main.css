@@ -127,6 +127,22 @@ max-height: 100%;
 	opacity:1;
 }
 
+.contactFormRows {
+	margin-bottom: 0px !important;
+}
+
+.formLoadingSpinner {
+	position: absolute;
+	left: 45%;
+	top: 45%;
+}
+
+.confirmationMessage {
+	position: absolute;
+	left: 45%;
+	top: 45%;
+}
+
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
